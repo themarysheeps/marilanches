@@ -63,7 +63,7 @@ label{font-size:10px;letter-spacing:2px;color:var(--gold)}
 .comic-box span{color:var(--red)}
 footer{border-top:1px solid var(--border);text-align:center;padding:35px 15px;color:var(--muted);font-size:9px;letter-spacing:3px;line-height:2}
 
-.avatar.vader,.avatar.batman{background:#050505;border-color:var(--yellow);overflow:hidden}
+.avatar.vader,.avatar.obiwan{background:#29251f;color:#FFE81F;border:2px solid #FFE81F}.avatar.batman{background:#050505;border-color:var(--yellow);overflow:hidden}
 .avatar svg{width:58px;height:58px;display:block}
 .profile{background:#090909}.profile p{color:var(--white)}
 .comic-intro{background:#f3d56b;color:#17120a;border:3px solid #17120a;box-shadow:5px 5px 0 #17120a;padding:20px;text-align:center;font-family:'Bangers',cursive;font-size:clamp(24px,4vw,40px);letter-spacing:1px;transform:rotate(-.4deg);margin:25px 0 28px}
@@ -244,7 +244,7 @@ html,body{max-width:100%;overflow-x:hidden}
   <form class="auth-card" id="loginForm">
     <div class="eyebrow">ACESSO RESTRITO / LUCACETUDO</div>
     <h2>Entrar no Universo</h2>
-    <p>Use o e-mail e a senha da sua conta. Somente Darth Vader e Batman têm acesso a este arquivo.</p>
+    <p>Use o e-mail e a senha da sua conta. Somente as contas autorizadas têm acesso a este arquivo.</p>
     <label for="loginEmail">E-MAIL</label><input id="loginEmail" type="email" autocomplete="username" required placeholder="Seu e-mail">
     <label for="loginPassword">SENHA</label><input id="loginPassword" type="password" autocomplete="current-password" required placeholder="Sua senha">
     <button class="btn" id="loginButton" type="submit" style="width:100%">ENTRAR</button>
@@ -257,12 +257,11 @@ html,body{max-width:100%;overflow-x:hidden}
 <header class="intro">
   <div class="small">HÁ MUITO TEMPO, NUMA GALÁXIA NEM TÃO DISTANTE...</div>
   <div class="logo"><span class="logo-outline">LUCACETUDO</span></div>
-  <p>DUAS PESSOAS. UM UNIVERSO.<br>UM ARQUIVO INFINITO DE MOMENTOS.</p>
+  <p>UM UNIVERSO DE HQS, JOGOS E DESCOBERTAS.<br>UM ARQUIVO DIGITAL FORA DESTE MUNDO.</p>
 </header>
 
 <nav>
   <button class="active" onclick="showTab('home',this)">✦ INÍCIO</button>
-  <button onclick="showTab('time',this)">◷ NOSSO TEMPO</button>
   <button onclick="showTab('music',this)">♫ TRILHA SONORA</button>
   <button onclick="showTab('books',this)">▤ BIBLIOTECA</button>
   <button onclick="showTab('comics',this)">▣ HQs</button>
@@ -285,15 +284,6 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="card"><div class="eyebrow">SISTEMA</div><h3>Dois jogadores na área</h3><p>Dois protagonistas, referências demais e uma quantidade questionável de obsessões compartilhadas.</p></div>
   </div>
   <div class="card"><div class="eyebrow">ÚLTIMAS TRANSMISSÕES</div><h3>Últimas descobertas</h3><div id="recentItems"></div></div>
-</section>
-
-<section id="time" class="section">
-  <div class="eyebrow">LINHA DO TEMPO / 002</div><h2>Desde o começo de tudo.</h2>
-  <div class="counter">
-    <div class="counter-label">ESTAMOS NOS FALANDO HÁ</div><div class="counter-number" id="days">—</div><div class="counter-label">DIAS</div>
-    <div class="date-control"><p>Data de início da nossa história:</p><input type="date" id="startDate"><button class="btn" onclick="saveDate()">ATUALIZAR DATA</button></div>
-  </div>
-  <div class="comic-box">CADA DIA É UMA NOVA EDIÇÃO! <span>★</span></div>
 </section>
 
 <section id="music" class="section">
@@ -374,10 +364,12 @@ html,body{max-width:100%;overflow-x:hidden}
 <ellipse cx="50" cy="50" rx="47" ry="31" fill="#FFE81F" stroke="#FFE81F" stroke-width="2"/>
 <path fill="#171717" d="M8 48 Q22 33 38 39 L43 24 50 36 57 24 62 39 Q78 33 92 48 Q84 56 77 62 Q67 73 50 80 Q33 73 23 62Z"/>
 <path fill="#FFE81F" d="M29 47 Q39 42 47 51 L50 60 53 51 Q61 42 71 47 L66 58 57 64 50 73 43 64 34 58Z"/></svg></div><div class="username" id="user2Display">PLAYER TWO</div><p>Jogador 2 · Batman</p><p>Conta autenticada: Luca</p></div>
+    <div class="profile"><div class="avatar obiwan" aria-label="Obi-Wan"><span aria-hidden="true">✦</span></div><div class="username" id="user3Display">PLAYER THREE</div><p>Jogador 3 · Obi-Wan</p><p>Conta autenticada: Nickolas</p></div>
   </div>
   <div class="grid profile-editors">
     <div class="profile-editor"><h3>Editar perfil — Darth Vader</h3><label for="profilePhoto1">Foto de perfil</label><input id="profilePhoto1" type="file" accept="image/*" onchange="updateProfilePhoto(event,'1')"><label for="profileBio1">Bio</label><textarea id="profileBio1" maxlength="240" placeholder="Escreva uma bio curta..."></textarea><button class="btn" onclick="saveProfile('1')">SALVAR PERFIL</button></div>
     <div class="profile-editor"><h3>Editar perfil — Batman</h3><label for="profilePhoto2">Foto de perfil</label><input id="profilePhoto2" type="file" accept="image/*" onchange="updateProfilePhoto(event,'2')"><label for="profileBio2">Bio</label><textarea id="profileBio2" maxlength="240" placeholder="Escreva uma bio curta..."></textarea><button class="btn" onclick="saveProfile('2')">SALVAR PERFIL</button></div>
+    <div class="profile-editor"><h3>Editar perfil — Obi-Wan</h3><label for="profilePhoto3">Foto de perfil</label><input id="profilePhoto3" type="file" accept="image/*" onchange="updateProfilePhoto(event,'3')"><label for="profileBio3">Bio</label><textarea id="profileBio3" maxlength="240" placeholder="Escreva uma bio curta..."></textarea><button class="btn" onclick="saveProfile('3')">SALVAR PERFIL</button></div>
   </div>
   <div class="card" style="margin-top:25px"><h3>Sessão autenticada</h3><p>O jogador é identificado pela conta conectada. A sessão permanece ativa neste dispositivo, e as alterações são sincronizadas com o banco de dados para os dois jogadores.</p><p id="currentUser"></p><small style="color:var(--muted)">Sincronização online ativa · acesso restrito às duas contas autorizadas.</small></div>
   <div class="card"><div class="eyebrow">ARQUIVO PESSOAL</div><h3>Nossas contribuições</h3><p>Veja quem adicionou cada música, livro ou HQ.</p><div id="allContributions"></div></div>
@@ -392,7 +384,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <form onsubmit="postMessage(event)">
       <label>ESCREVA UM COMENTÁRIO OU RECADO</label>
       <textarea id="messageText" required maxlength="500" placeholder="Digite sua mensagem para o outro tripulante..."></textarea>
-      <div class="mention-tools"><button type="button" class="btn btn-outline" onclick="insertMention('messageText')">@ MENCIONAR OUTRA PESSOA</button><small>Use @Darth Vader ou @Batman para chamar a atenção.</small></div>
+      <div class="mention-tools"><button type="button" class="btn btn-outline" onclick="insertMention('messageText')">@ MENCIONAR OUTRA PESSOA</button><small>Use @Darth Vader, @Batman ou @Obi-Wan para chamar a atenção.</small></div>
       <button class="btn">PUBLICAR TRANSMISSÃO ✉</button>
     </form>
     <div id="messageList"></div>
@@ -407,7 +399,7 @@ html,body{max-width:100%;overflow-x:hidden}
 <div class="game-arena" id="gameArena"><canvas id="shipGameCanvas" width="900" height="300" aria-label="Jogo de nave: pressione espaço ou toque para saltar"></canvas></div>
 <p class="game-help" id="gameMessage">Pressione ESPAÇO, ↑ ou toque na tela para saltar. Evite os asteroides.</p>
 <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:15px"><button class="btn" id="startGame" onclick="startGame()">INICIAR MISSÃO</button><button class="btn btn-outline" onclick="switchGamePlayer()">TROCAR PILOTO</button></div>
-<div class="game-stats"><span>VADER: <b id="score1">0</b></span><span>BATMAN: <b id="score2">0</b></span><small>♛ A coroa fica com quem tiver o maior recorde.</small></div>
+<div class="game-stats"><span>VADER: <b id="score1">0</b></span><span>BATMAN: <b id="score2">0</b></span><span>OBI-WAN: <b id="score3">0</b></span><small>♛ A coroa fica com quem tiver o maior recorde.</small></div>
 </div><div class="comic-box">QUE A FORÇA ESTEJA COM O MAIS RÁPIDO! <span>★</span></div>
 </section>
 
@@ -421,7 +413,7 @@ html,body{max-width:100%;overflow-x:hidden}
  <p>Do outro, <strong>Mari</strong>. Uma Lorde Sith orgulhosa, movida a puro puro ódio de Jedis, caos criativo e a certeza absoluta de que o Lado Sombrio oferece café expresso de melhor qualidade.</p>
  <p>Certa vez, enquanto disputavam o último pedaço de pizza na bancada de trabalho, os sabres de luz se cruzaram. faíscas voaram. O universo prendeu a respiração.</p>
  <p>Foi quando Luca olhou para Mari, Mari olhou para Luca e ambos perceberam uma verdade cósmica incontestável: dominar a galáxia sozinha daria muito trabalho, e discussões sobre design system eram infinitamente melhores com alguém para discordar.</p>
- <p>Eles não uniram forças por romance, destino místico ou profecia antiga. Uniram-se porque o caos dela precisava da paciência dele, e a paz dele estava à beira de um colapso que só o humor ácido dela poderia salvar.</p>
+ <p>A aliança não nasceu de destino místico ou profecia antiga. Foi uma decisão estratégica: o caos dela precisava da paciência dele, e a paz dele estava à beira de um colapso que só o humor ácido dela poderia evitar.</p>
  <p>Dessa trégua armada nasceu este site.</p>
  <p>Não para salvar o universo, mas para garantir que, se o Império cair, pelo menos a gente deixe um bom portfólio para contar a história.</p>
  <p>Que a Força esteja com vocês... e que os bugs fiquem bem longe daqui.</p>
@@ -459,7 +451,8 @@ const SUPABASE_URL='https://vttokyfyssquyjrattiq.supabase.co';
 const SUPABASE_ANON_KEY='sb_publishable_VbNzy1kYLgJttUrfX0hN8w__NiM8yEx';
 const USER_IDS={
   '02228bf7-0cda-4f87-9a9c-c191ec9ac2ed':'1', // Mari — Darth Vader
-  '4f41f0a6-dcca-4c31-a639-50fbde81b6cb':'2'  // Luca — Batman
+  '4f41f0a6-dcca-4c31-a639-50fbde81b6cb':'2', // Luca — Batman
+  '9c0b63b9-5451-431c-b2bd-d48294cbd55f':'3'  // Nickolas — Obi-Wan
 };
 // E-mail da Mari associado ao perfil 1 (Darth Vader).
 const USER_EMAILS={
@@ -468,9 +461,9 @@ const USER_EMAILS={
 const supabaseClient=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
 let data;
 try { data=JSON.parse(localStorage.getItem(KEY)) || null; } catch { data=null; }
-if(!data) data={users:{1:'Darth Vader',2:'Batman'},profiles:{1:{photo:'',bio:''},2:{photo:'',bio:''}},activeUser:'1',startDate:'',music:[],books:[],comics:[],messages:[],comicCreations:[],movies:[],gameScores:{'1':0,'2':0},farm:{phase:1,turn:1,credits:0,plots:Array(6).fill(null)}};
-data.users=data.users||{1:'Darth Vader',2:'Batman'};data.gameScores=data.gameScores||{'1':0,'2':0};data.farm=data.farm||{phase:1,turn:1,credits:0,plots:Array(6).fill(null)};data.farm.plots=data.farm.plots||Array(6).fill(null);
-data.profiles=data.profiles||{1:{photo:'',bio:''},2:{photo:'',bio:''}};
+if(!data) data={users:{1:'Darth Vader',2:'Batman',3:'Obi-Wan'},profiles:{1:{photo:'',bio:''},2:{photo:'',bio:''},3:{photo:'',bio:''}},activeUser:'1',music:[],books:[],comics:[],messages:[],comicCreations:[],movies:[],gameScores:{'1':0,'2':0,'3':0},farm:{phase:1,turn:1,credits:0,plots:Array(6).fill(null)}};
+data.users=data.users||{1:'Darth Vader',2:'Batman',3:'Obi-Wan'};data.users[3]=data.users[3]||'Obi-Wan';data.gameScores=data.gameScores||{'1':0,'2':0,'3':0};data.gameScores[3]=data.gameScores[3]||0;data.farm=data.farm||{phase:1,turn:1,credits:0,plots:Array(6).fill(null)};data.farm.plots=data.farm.plots||Array(6).fill(null);
+data.profiles=data.profiles||{1:{photo:'',bio:''},2:{photo:'',bio:''},3:{photo:'',bio:''}};data.profiles[3]=data.profiles[3]||{photo:'',bio:''};
 ['music','books','comics','messages','comicCreations','movies'].forEach(k=>{if(!Array.isArray(data[k]))data[k]=[];});
 data.comics.forEach(c=>{if(!c.collection)c.collection='edicao';});
 data.messages.forEach(m=>{if(!Array.isArray(m.comments))m.comments=[];});
@@ -480,10 +473,12 @@ function setIdentity(userId,email){
   if(!player) throw new Error('Esta conta não está autorizada a acessar o Lucacetudo.');
   data.activeUser=player;
   if(!data.users[1] || data.users[1]==='PLAYER ONE') data.users[1]='Darth Vader';
+  data.users[3]=data.users[3]||'Obi-Wan';
   if(!data.users[2] || data.users[2]==='PLAYER TWO') data.users[2]='Batman';
   document.getElementById('user1Display').textContent=data.users[1];
-  document.getElementById('user2Display').textContent=data.users[2];
-  document.getElementById('currentUser').textContent='CONECTADO COMO '+(player==='1'?'Darth Vader':'Batman')+' · alterações sincronizadas online.';
+  document.getElementById('user2Display').textContent=data.users[2];document.getElementById('user3Display').textContent=data.users[3];
+  document.getElementById('user3Display').textContent=data.users[3];
+  document.getElementById('currentUser').textContent='CONECTADO COMO '+({1:'Darth Vader',2:'Batman',3:'Obi-Wan'}[player]||'Obi-Wan')+' · alterações sincronizadas online.';
 }
 function save(){
   try { localStorage.setItem(KEY,JSON.stringify(data)); } catch(error) { console.warn('Cache local indisponível:',error); }
@@ -501,8 +496,8 @@ async function loadCloudState(){
   if(error) throw error;
   if(row && row.state){
     data=row.state;
-    data.users=data.users||{1:'Darth Vader',2:'Batman'};data.gameScores=data.gameScores||{'1':0,'2':0};data.farm=data.farm||{phase:1,turn:1,credits:0,plots:Array(6).fill(null)};data.farm.plots=data.farm.plots||Array(6).fill(null);
-    data.profiles=data.profiles||{1:{photo:'',bio:''},2:{photo:'',bio:''}};
+    data.users=data.users||{1:'Darth Vader',2:'Batman',3:'Obi-Wan'};data.users[3]=data.users[3]||'Obi-Wan';data.gameScores=data.gameScores||{'1':0,'2':0,'3':0};data.gameScores[3]=data.gameScores[3]||0;data.farm=data.farm||{phase:1,turn:1,credits:0,plots:Array(6).fill(null)};data.farm.plots=data.farm.plots||Array(6).fill(null);
+    data.profiles=data.profiles||{1:{photo:'',bio:''},2:{photo:'',bio:''},3:{photo:'',bio:''}};data.profiles[3]=data.profiles[3]||{photo:'',bio:''};
     ['music','books','comics','messages','comicCreations','movies'].forEach(k=>{if(!Array.isArray(data[k]))data[k]=[];});
     data.comics.forEach(c=>{if(!c.collection)c.collection='edicao';});
     data.messages.forEach(m=>{if(!Array.isArray(m.comments))m.comments=[];});
@@ -518,8 +513,8 @@ async function loadCloudState(){
     .on('postgres_changes',{event:'UPDATE',schema:'public',table:'universe_state',filter:'id=eq.main'},payload=>{
       if(payload.new?.state && currentAuthUser){
         const incoming=payload.new.state;
-        data=incoming; data.users=data.users||{1:'Darth Vader',2:'Batman'};data.gameScores=data.gameScores||{'1':0,'2':0};data.farm=data.farm||{phase:1,turn:1,credits:0,plots:Array(6).fill(null)};data.farm.plots=data.farm.plots||Array(6).fill(null);
-        data.profiles=data.profiles||{1:{photo:'',bio:''},2:{photo:'',bio:''}};
+        data=incoming; data.users=data.users||{1:'Darth Vader',2:'Batman',3:'Obi-Wan'};data.users[3]=data.users[3]||'Obi-Wan';data.gameScores=data.gameScores||{'1':0,'2':0,'3':0};data.gameScores[3]=data.gameScores[3]||0;data.farm=data.farm||{phase:1,turn:1,credits:0,plots:Array(6).fill(null)};data.farm.plots=data.farm.plots||Array(6).fill(null);
+        data.profiles=data.profiles||{1:{photo:'',bio:''},2:{photo:'',bio:''},3:{photo:'',bio:''}};data.profiles[3]=data.profiles[3]||{photo:'',bio:''};
         ['music','books','comics','messages','comicCreations','movies'].forEach(k=>{if(!Array.isArray(data[k]))data[k]=[];});
     data.comics.forEach(c=>{if(!c.collection)c.collection='edicao';});
     data.messages.forEach(m=>{if(!Array.isArray(m.comments))m.comments=[];});
@@ -564,18 +559,6 @@ function showTab(id,button){
 }
 function changeUser(){alert('O jogador é definido pela conta autenticada. Saia e entre com a outra conta para alternar.');}
 function setActiveUser(){return;}
-function saveDate(){
-  const value=document.getElementById('startDate').value;
-  if(!value)return alert('Escolha uma data.');
-  if(new Date(value+'T00:00:00')>new Date())return alert('A data não pode estar no futuro.');
-  data.startDate=value;save();renderDays();
-}
-function renderDays(){
-  document.getElementById('startDate').value=data.startDate||'';
-  if(!data.startDate){document.getElementById('days').textContent='—';return;}
-  const start=new Date(data.startDate+'T00:00:00'),today=new Date();today.setHours(0,0,0,0);
-  document.getElementById('days').textContent=Math.max(0,Math.floor((today-start)/86400000)).toLocaleString('pt-BR');
-}
 function addItem(event,category){
   event.preventDefault();
   const title=document.getElementById(category+'Title').value.trim();
@@ -636,7 +619,7 @@ function renderContributions(){
   document.getElementById('allContributions').innerHTML=html;
   document.getElementById('recentItems').innerHTML=html;
 }
-function profileFor(player){data.profiles=data.profiles||{1:{photo:'',bio:''},2:{photo:'',bio:''}};data.profiles[player]=data.profiles[player]||{photo:'',bio:''};return data.profiles[player];}
+function profileFor(player){data.profiles=data.profiles||{1:{photo:'',bio:''},2:{photo:'',bio:''},3:{photo:'',bio:''}};data.profiles[3]=data.profiles[3]||{photo:'',bio:''};data.profiles[player]=data.profiles[player]||{photo:'',bio:''};return data.profiles[player];}
 function saveProfile(player){
   if(String(data.activeUser)!==String(player))return alert('Você só pode editar o perfil da conta conectada.');
   const bio=document.getElementById('profileBio'+player).value.trim();
@@ -648,7 +631,7 @@ function updateProfilePhoto(event,player){
   const reader=new FileReader();reader.onload=()=>{const img=new Image();img.onload=()=>{const canvas=document.createElement('canvas');const scale=Math.min(1,480/Math.max(img.width,img.height));canvas.width=Math.round(img.width*scale);canvas.height=Math.round(img.height*scale);canvas.getContext('2d').drawImage(img,0,0,canvas.width,canvas.height);profileFor(player).photo=canvas.toDataURL('image/jpeg',.78);save();renderProfiles();};img.src=reader.result;};reader.readAsDataURL(file);
 }
 function renderProfiles(){
-  ['1','2'].forEach(player=>{const profile=profileFor(player);const card=document.querySelectorAll('#profiles .profile')[Number(player)-1];if(!card)return;const avatar=card.querySelector('.avatar');if(profile.photo){avatar.innerHTML=`<img class="profile-photo" src="${profile.photo}" alt="Foto de perfil">`;avatar.classList.remove('vader','batman');}else{avatar.classList.add(player==='1'?'vader':'batman');if(!avatar.querySelector('svg'))avatar.innerHTML=player==='1'?`<span aria-hidden="true">◈</span>`:`<span aria-hidden="true">🦇</span>`;}
+  ['1','2','3'].forEach(player=>{const profile=profileFor(player);const card=document.querySelectorAll('#profiles .profile')[Number(player)-1];if(!card)return;const avatar=card.querySelector('.avatar');if(profile.photo){avatar.innerHTML=`<img class="profile-photo" src="${profile.photo}" alt="Foto de perfil">`;avatar.classList.remove('vader','batman');}else{avatar.classList.add(player==='1'?'vader':player==='2'?'batman':'obiwan');if(!avatar.querySelector('svg'))avatar.innerHTML=player==='1'?`<span aria-hidden="true">◈</span>`:player==='2'?`<span aria-hidden="true">🦇</span>`:`<span aria-hidden="true">✦</span>`;}
     let bio=card.querySelector('.profile-bio');if(!bio){bio=document.createElement('p');bio.className='profile-bio';card.appendChild(bio);}bio.textContent=profile.bio||'Sem bio ainda.';
     const field=document.getElementById('profileBio'+player);if(field&&document.activeElement!==field)field.value=profile.bio||'';
     const editor=document.querySelectorAll('.profile-editor')[Number(player)-1];if(editor){const allowed=String(data.activeUser)===player;editor.style.opacity=allowed?'1':'.5';editor.querySelectorAll('input,textarea,button').forEach(el=>el.disabled=!allowed);}
@@ -656,14 +639,14 @@ function renderProfiles(){
 }
 function render(){
   document.getElementById('user1Display').textContent=data.users[1];
-  document.getElementById('user2Display').textContent=data.users[2];
-  if(currentAuthUser) document.getElementById('currentUser').textContent='CONECTADO COMO '+(data.activeUser==='1'?'Darth Vader':'Batman')+' · alterações sincronizadas online.';
-  renderDays();renderProfiles();['music','books','comics'].forEach(renderList);renderContributions();renderMessages();renderStrips();renderMovies();updateGameUI();renderFarm();
+  document.getElementById('user2Display').textContent=data.users[2];document.getElementById('user3Display').textContent=data.users[3];
+  document.getElementById('user3Display').textContent=data.users[3];
+  if(currentAuthUser) document.getElementById('currentUser').textContent='CONECTADO COMO '+({1:'Darth Vader',2:'Batman',3:'Obi-Wan'}[data.activeUser]||'Obi-Wan')+' · alterações sincronizadas online.';renderProfiles();['music','books','comics'].forEach(renderList);renderContributions();renderMessages();renderStrips();renderMovies();updateGameUI();renderFarm();
 }
 
 
-function insertMention(fieldId){const field=document.getElementById(fieldId);if(!field)return;const name=data.activeUser==='1'?'Batman':'Darth Vader';const token='@'+name+' ';const a=field.selectionStart??field.value.length,b=field.selectionEnd??field.value.length;field.value=field.value.slice(0,a)+token+field.value.slice(b);field.focus();field.selectionStart=field.selectionEnd=a+token.length;}
-function formatMentions(value){return escapeHTML(value).replace(/@(Darth Vader|Batman|Mari|Luca)/gi,'<span class="mention">@$1</span>');}
+function insertMention(fieldId){const field=document.getElementById(fieldId);if(!field)return;const name=({'1':'@Batman ou @Obi-Wan','2':'@Darth Vader ou @Obi-Wan','3':'@Darth Vader ou @Batman'}[String(data.activeUser)]||'@Obi-Wan');const token=name+' ';const a=field.selectionStart??field.value.length,b=field.selectionEnd??field.value.length;field.value=field.value.slice(0,a)+token+field.value.slice(b);field.focus();field.selectionStart=field.selectionEnd=a+token.length;}
+function formatMentions(value){return escapeHTML(value).replace(/@(Darth Vader|Batman|Obi-Wan|Mari|Luca|Nickolas)/gi,'<span class="mention">@$1</span>');}
 function postMessage(event){
  event.preventDefault();const field=document.getElementById('messageText'),body=field.value.trim();if(!body)return;
  data.messages.unshift({id:String(Date.now()),body,user:data.activeUser,date:new Date().toLocaleString('pt-BR'),comments:[]});save();field.value='';renderMessages();
@@ -745,13 +728,13 @@ if(!musicPlaying){frame.src='https://www.youtube.com/embed/HrIJT_4Txqw?autoplay=
 else{frame.src='about:blank';button.textContent='♫ TOCAR TEMA DE STAR WARS';musicPlaying=false;}
 }
 let gameCurrentPlayer='1',gameRunning=false,gameFrame=0,gameLastTime=0,gameDistance=0,gameSpeed=360,gameSpawn=0,gameObstacles=[],gameStars=[];
-let gameScores=data.gameScores||{'1':0,'2':0},shipY=0,shipVelocity=0,shipGround=250,gameCanvas,gameCtx;
+let gameScores=data.gameScores||{'1':0,'2':0,'3':0},shipY=0,shipVelocity=0,shipGround=250,gameCanvas,gameCtx;
 function updateGameUI(){
  gameScores=data.gameScores||gameScores;
  const player=document.getElementById('gamePlayer');if(player)player.textContent=data.users[gameCurrentPlayer];
  const score=document.getElementById('gameScore');if(score)score.textContent=Math.floor(gameDistance).toLocaleString('pt-BR');
  const best=document.getElementById('gameBest');if(best)best.textContent=gameScores[gameCurrentPlayer].toLocaleString('pt-BR');
- document.getElementById('score1').innerHTML=(gameScores['1']>gameScores['2']?'<span class=\"crown\">♛</span> ':'')+gameScores['1'];document.getElementById('score2').innerHTML=(gameScores['2']>gameScores['1']?'<span class=\"crown\">♛</span> ':'')+gameScores['2'];
+ const ranking=[['1','score1'],['2','score2'],['3','score3']];const maxScore=Math.max(...ranking.map(([id])=>Number(gameScores[id]||0)));ranking.forEach(([id,elementId])=>{document.getElementById(elementId).innerHTML=(maxScore>0&&Number(gameScores[id]||0)===maxScore?'<span class=\"crown\">♛</span> ':'')+(gameScores[id]||0);});
 }
 function initShipGame(){gameCanvas=document.getElementById('shipGameCanvas');if(!gameCanvas)return;gameCtx=gameCanvas.getContext('2d');gameStars=Array.from({length:65},()=>({x:Math.random()*900,y:Math.random()*230,r:Math.random()*1.7+.4,s:Math.random()*35+15}));drawShipGame();
  gameCanvas.addEventListener('pointerdown',jumpShip);window.addEventListener('keydown',e=>{if((e.code==='Space'||e.code==='ArrowUp')&&document.getElementById('game').classList.contains('active')){e.preventDefault();jumpShip();}});
