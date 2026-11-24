@@ -194,19 +194,9 @@ footer{border-top:1px solid var(--border);text-align:center;padding:35px 15px;co
 @media(max-width:700px){.tarot-board{grid-template-columns:repeat(2,minmax(0,1fr))}.tarot-card{min-height:280px}.tarot-card .tarot-back,.tarot-card .tarot-front{min-height:260px}.tarot-card .tarot-illustration{font-size:58px}}@media(max-width:440px){.tarot-board{grid-template-columns:1fr}.tarot-card{max-width:260px;width:100%;margin:auto}}.cinema-screen{perspective:340px}
 
 
-.spotify-embed{margin-top:16px;width:100%}
-.spotify-embed iframe{width:100%;min-height:152px;border:0;border-radius:12px}
-.spotify-uri{display:block;overflow-wrap:anywhere;padding:10px;background:#111;color:#FFE81F;font-size:12px}
-.spotify-connect-card .small{font-size:12px;color:#aaa}
 
 
-/* Spotify panel: keep controls within the viewport and clickable */
 *,*::before,*::after{box-sizing:border-box}
-.spotify-connect-card{width:100%;max-width:100%;min-width:0;overflow:hidden}
-.spotify-connect-card input{display:block;width:100%;max-width:100%;min-width:0;box-sizing:border-box}
-.spotify-connect-card .spotify-actions{position:relative;z-index:2;align-items:center}
-.spotify-connect-card button{position:relative;z-index:3;pointer-events:auto;cursor:pointer}
-.spotify-connect-card p{overflow-wrap:anywhere}
 html,body{max-width:100%;overflow-x:hidden}
 
 /* Mini fazendinha galáctica 2D */
@@ -262,7 +252,6 @@ html,body{max-width:100%;overflow-x:hidden}
 
 <nav>
   <button class="active" onclick="showTab('home',this)">INÍCIO</button>
-  <button onclick="showTab('music',this)">♫ TRILHA SONORA</button>
   <button onclick="showTab('books',this)">▤ BIBLIOTECA</button>
   <button onclick="showTab('comics',this)">▣ HQs</button>
   <button onclick="showTab('profiles',this)">♙ PERFIS</button>
@@ -270,7 +259,6 @@ html,body{max-width:100%;overflow-x:hidden}
   <button onclick="showTab('game',this)">⚔ MISSÕES</button>
   <button onclick="showTab('cinema',this)">CINEMINHA</button>
   <button onclick="showTab('tarot',this)">☾ TARÔ CÓSMICO</button>
-  <button onclick="showTab('farm',this)">✿ FAZENDINHA GALÁCTICA</button>
   <button id="logoutButton" type="button" onclick="logout()">SAIR</button>
 </nav>
 
@@ -278,28 +266,11 @@ html,body{max-width:100%;overflow-x:hidden}
 <section id="home" class="section active">
   <div class="eyebrow">TRANSMISSION RECEIVED / 001</div>
   <h2>Bem-vindos ao nosso universo.</h2>
-  <div class="comic-box">SANTA CONEXÃO CÓSMICA!<br><span>ESTE É O NOSSO CANTINHO DO UNIVERSO.</span></div>
+  <div class="comic-box">ACESSO LIBERADO, TRIPULAÇÃO!<br><span>BASE DE OPERAÇÕES PARA HQS, JOGOS E CAOS ORGANIZADO.</span></div>
   <div class="card"><div class="eyebrow">ÚLTIMAS TRANSMISSÕES</div><h3>Últimas descobertas</h3><div id="recentItems"></div></div>
 </section>
 
-<section id="music" class="section">
-  <div class="eyebrow">TRILHA SONORA / 003</div><h2>Nossa trilha sonora.</h2><p>As músicas que acompanham nossos dias, lembranças e momentos.</p>
-  <div class="card spotify-connect-card">
-    <h3>♫ NOSSA PLAYLIST</h3>
-    <p>A trilha sonora oficial do nosso universo. Dê o play e deixe a galáxia tocar.</p>
-    <div class="spotify-embed">
-      <iframe title="Playlist do Mari Lanches no Spotify" src="https://open.spotify.com/embed/playlist/37i9dQZF1EJN5AkfMk549R?utm_source=generator" width="100%" height="352" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </div>
-    <a class="btn" href="https://open.spotify.com/playlist/37i9dQZF1EJN5AkfMk549R" target="_blank" rel="noopener noreferrer">ABRIR NO SPOTIFY</a>
-  </div>
-  <div class="card"><h3>+ Adicionar música</h3><form onsubmit="addItem(event,'music')">
-    <label>NOME DA MÚSICA</label><input id="musicTitle" required placeholder="Ex: Space Song">
-    <label>ARTISTA</label><input id="musicArtist" placeholder="Nome do artista">
-    <label>LINK DA MÚSICA</label><input id="musicLink" placeholder="Spotify, YouTube etc.">
-    <label>POR QUE ESSA MÚSICA?</label><textarea id="musicNote" placeholder="O que ela significa para você?"></textarea>
-    <button class="btn">GUARDAR NO ARQUIVO ♫</button>
-  </form></div><div id="musicList"></div>
-</section>
+
 
 <section id="books" class="section">
   <div class="eyebrow">BIBLIOTECA / 004</div><h2>Leituras da vez.</h2><p>Livros que estamos lendo, queremos ler ou recomendamos um ao outro.</p>
@@ -415,24 +386,14 @@ html,body{max-width:100%;overflow-x:hidden}
  <p>Que a Força esteja com vocês... e que os bugs fiquem bem longe daqui.</p>
  </div></div>
  <div class="cinema-controls"><button class="btn" onclick="restartCrawl()">▶ RECOMEÇAR CRÉDITOS</button><a class="btn btn-outline" href="https://discord.com/login" target="_blank" rel="noopener noreferrer">ENTRAR NO DISCORD ↗</a></div>
- <div class="card" style="margin-top:22px"><h3>FILMES NA NOSSA LISTA</h3><p>Adicionem os filmes que querem assistir juntos. Depois, sorteiem a próxima sessão.</p><form onsubmit="addMovie(event)"><input id="movieTitle" required maxlength="100" placeholder="Nome do filme"><button class="btn">ADICIONAR À LISTA</button></form><div class="movie-list" id="movieList"></div><button class="btn" style="margin-top:15px" onclick="drawMovie()">🎲 SORTEAR FILME DA VEZ</button><div class="tarot-reading" id="movieDraw" aria-live="polite">O próximo filme ainda não foi sorteado.</div></div>
+ <div class="card" style="margin-top:22px"><h3>FILMES PARA ASSISTIR</h3><p>Fila de exibição: adicionem títulos, sorteiem o próximo e marquem quando terminarem.</p><form onsubmit="addMovie(event)"><input id="movieTitle" required maxlength="100" placeholder="Nome do filme"><button class="btn">ADICIONAR À LISTA</button></form><div class="movie-list" id="movieList"></div><button class="btn" style="margin-top:15px" onclick="drawMovie()">🎲 SORTEAR FILME DA VEZ</button><div class="tarot-reading" id="movieDraw" aria-live="polite">O próximo filme ainda não foi sorteado.</div><div class="divider"></div><h3>FILMES ASSISTIDOS</h3><p>Histórico das sessões, com avaliação e comentários.</p><div class="movie-list" id="watchedMovieList"></div></div>
 </section>
 <section id="tarot" class="section">
  <div class="eyebrow">ORÁCULO INTERGALÁCTICO / 009</div><h2>Tarô cósmico</h2><p>Escolha três cartas. O destino foi consultado, mas não prometemos profissionalismo.</p>
  <div class="tarot-board" id="tarotBoard"><button class="tarot-card" onclick="drawTarot(0)"><span class="tarot-symbol"></span><strong>ESCOLHER CARTA I</strong><small>O que vem aí?</small></button><button class="tarot-card" onclick="drawTarot(1)"><span class="tarot-symbol">☾</span><strong>ESCOLHER CARTA II</strong><small>O que está oculto?</small></button><button class="tarot-card" onclick="drawTarot(2)"><span class="tarot-symbol">♜</span><strong>ESCOLHER CARTA III</strong><small>Qual o conselho?</small></button></div>
  <div class="tarot-reading" id="tarotReading">As cartas estão viradas para baixo. Escolha a primeira.</div><button class="btn btn-outline" onclick="resetTarot()">EMBARALHAR NOVAMENTE</button>
 </section>
-<section id="farm" class="section">
- <div class="eyebrow">COLÔNIA AGRÍCOLA / SETOR 02</div><h2>Fazendinha galáctica</h2><p>Transformem um pedaço esquecido da galáxia numa fazenda interplanetária. Plantem, esperem a colheita e desbloqueiem novos mundos.</p>
- <div class="farm-hud"><span class="farm-stat">PLANETA: <b id="farmPhase">1</b> / 3</span><span class="farm-stat">CRÉDITOS: <b id="farmCredits">0</b></span><span class="farm-stat">DIA: <b id="farmTurn">1</b></span></div>
- <div class="farm-world farm-stardew phase-1" id="farmWorld">
-  <div class="farm-phase-note" id="farmPhaseName">FASE 1 — CAMPOS DE TATOOINE · Sua pequena colônia.</div>
-  <div class="farm-scene"><div class="farm-map" id="farmMap" aria-label="Mapa da fazenda galáctica"></div></div>
- </div>
- <div class="farm-toolbar"><span class="farm-tool-label">FERRAMENTAS</span><button class="farm-tool active" id="toolPlant" onclick="setFarmTool('plant')">🌱 Sementes</button><button class="farm-tool" id="toolWater" onclick="setFarmTool('water')">💧 Regador</button><button class="farm-tool" id="toolHarvest" onclick="setFarmTool('harvest')">🧺 Colher</button></div>
- <div class="farm-controls"><div class="farm-dpad"><button onclick="moveFarm(0,-1)" aria-label="Mover para cima">▲</button><div><button onclick="moveFarm(-1,0)" aria-label="Mover para esquerda">◀</button><button onclick="moveFarm(0,1)" aria-label="Mover para baixo">▼</button><button onclick="moveFarm(1,0)" aria-label="Mover para direita">▶</button></div></div><button class="btn" onclick="advanceFarm()">DORMIR / PRÓXIMO DIA ☾</button><button class="btn btn-outline" onclick="restartFarm()">RECOMEÇAR</button></div>
- <div class="farm-progress"><span id="farmProgress"></span></div><p id="farmHint">Use as setas ou WASD para andar. Aproxime-se dos canteiros e escolha uma ferramenta para cuidar das plantações.</p>
-</section>
+
 
 </main>
 
@@ -457,10 +418,10 @@ const USER_EMAILS={
 const supabaseClient=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
 let data;
 try { data=JSON.parse(localStorage.getItem(KEY)) || null; } catch { data=null; }
-if(!data) data={users:{1:'Darth Vader',2:'Batman',3:'Obi-Wan'},profiles:{1:{photo:'',bio:''},2:{photo:'',bio:''},3:{photo:'',bio:''}},activeUser:'1',music:[],books:[],comics:[],messages:[],comicCreations:[],movies:[],gameScores:{'1':0,'2':0,'3':0},farm:{phase:1,turn:1,credits:0,plots:Array(6).fill(null)}};
+if(!data) data={users:{1:'Darth Vader',2:'Batman',3:'Obi-Wan'},profiles:{1:{photo:'',bio:''},2:{photo:'',bio:''},3:{photo:'',bio:''}},activeUser:'1',music:[],books:[],comics:[],messages:[],comicCreations:[],movies:[],watchedMovies:[],gameScores:{'1':0,'2':0,'3':0},farm:{phase:1,turn:1,credits:0,plots:Array(6).fill(null)}};
 data.users=data.users||{1:'Darth Vader',2:'Batman',3:'Obi-Wan'};data.users[3]=data.users[3]||'Obi-Wan';data.gameScores=data.gameScores||{'1':0,'2':0,'3':0};data.gameScores[3]=data.gameScores[3]||0;data.farm=data.farm||{phase:1,turn:1,credits:0,plots:Array(6).fill(null)};data.farm.plots=data.farm.plots||Array(6).fill(null);
 data.profiles=data.profiles||{1:{photo:'',bio:''},2:{photo:'',bio:''},3:{photo:'',bio:''}};data.profiles[3]=data.profiles[3]||{photo:'',bio:''};
-['music','books','comics','messages','comicCreations','movies'].forEach(k=>{if(!Array.isArray(data[k]))data[k]=[];});
+['music','books','comics','messages','comicCreations','movies','watchedMovies'].forEach(k=>{if(!Array.isArray(data[k]))data[k]=[];});
 data.comics.forEach(c=>{if(!c.collection)c.collection='edicao';});
 data.messages.forEach(m=>{if(!Array.isArray(m.comments))m.comments=[];});
 let currentAuthUser=null, realtimeChannel=null, cloudReady=false, saveQueue=Promise.resolve();
@@ -494,7 +455,7 @@ async function loadCloudState(){
     data=row.state;
     data.users=data.users||{1:'Darth Vader',2:'Batman',3:'Obi-Wan'};data.users[3]=data.users[3]||'Obi-Wan';data.gameScores=data.gameScores||{'1':0,'2':0,'3':0};data.gameScores[3]=data.gameScores[3]||0;data.farm=data.farm||{phase:1,turn:1,credits:0,plots:Array(6).fill(null)};data.farm.plots=data.farm.plots||Array(6).fill(null);
     data.profiles=data.profiles||{1:{photo:'',bio:''},2:{photo:'',bio:''},3:{photo:'',bio:''}};data.profiles[3]=data.profiles[3]||{photo:'',bio:''};
-    ['music','books','comics','messages','comicCreations','movies'].forEach(k=>{if(!Array.isArray(data[k]))data[k]=[];});
+    ['music','books','comics','messages','comicCreations','movies','watchedMovies'].forEach(k=>{if(!Array.isArray(data[k]))data[k]=[];});
     data.comics.forEach(c=>{if(!c.collection)c.collection='edicao';});
     data.messages.forEach(m=>{if(!Array.isArray(m.comments))m.comments=[];});
   } else {
@@ -511,7 +472,7 @@ async function loadCloudState(){
         const incoming=payload.new.state;
         data=incoming; data.users=data.users||{1:'Darth Vader',2:'Batman',3:'Obi-Wan'};data.users[3]=data.users[3]||'Obi-Wan';data.gameScores=data.gameScores||{'1':0,'2':0,'3':0};data.gameScores[3]=data.gameScores[3]||0;data.farm=data.farm||{phase:1,turn:1,credits:0,plots:Array(6).fill(null)};data.farm.plots=data.farm.plots||Array(6).fill(null);
         data.profiles=data.profiles||{1:{photo:'',bio:''},2:{photo:'',bio:''},3:{photo:'',bio:''}};data.profiles[3]=data.profiles[3]||{photo:'',bio:''};
-        ['music','books','comics','messages','comicCreations','movies'].forEach(k=>{if(!Array.isArray(data[k]))data[k]=[];});
+        ['music','books','comics','messages','comicCreations','movies','watchedMovies'].forEach(k=>{if(!Array.isArray(data[k]))data[k]=[];});
     data.comics.forEach(c=>{if(!c.collection)c.collection='edicao';});
     data.messages.forEach(m=>{if(!Array.isArray(m.comments))m.comments=[];});
         setIdentity(currentAuthUser.id,currentAuthUser.email); localStorage.setItem(KEY,JSON.stringify(data)); render();
@@ -637,7 +598,7 @@ function render(){
   document.getElementById('user1Display').textContent=data.users[1];
   document.getElementById('user2Display').textContent=data.users[2];document.getElementById('user3Display').textContent=data.users[3];
   document.getElementById('user3Display').textContent=data.users[3];
-  if(currentAuthUser) document.getElementById('currentUser').textContent='CONECTADO COMO '+({1:'Darth Vader',2:'Batman',3:'Obi-Wan'}[data.activeUser]||'Obi-Wan')+' · alterações sincronizadas online.';renderProfiles();['music','books','comics'].forEach(renderList);renderContributions();renderMessages();renderStrips();renderMovies();updateGameUI();renderFarm();
+  if(currentAuthUser) document.getElementById('currentUser').textContent='CONECTADO COMO '+({1:'Darth Vader',2:'Batman',3:'Obi-Wan'}[data.activeUser]||'Obi-Wan')+' · alterações sincronizadas online.';renderProfiles();['books','comics'].forEach(renderList);renderContributions();renderMessages();renderStrips();renderMovies();updateGameUI();
 }
 
 
@@ -676,7 +637,14 @@ function renderStrips(){
 
 function restartCrawl(){const el=document.getElementById('cinemaCrawl');el.style.animation='none';void el.offsetWidth;el.style.animation='';}
 function addMovie(event){event.preventDefault();const field=document.getElementById('movieTitle'),title=field.value.trim();if(!title)return;data.movies.unshift({id:String(Date.now()),title,user:data.activeUser,date:new Date().toLocaleDateString('pt-BR')});save();field.value='';renderMovies();}
-function renderMovies(){const box=document.getElementById('movieList');if(!box)return;box.innerHTML=(data.movies||[]).map(m=>`<div class="movie-item"><span>${escapeHTML(m.title)} <small>· @${escapeHTML(data.users[m.user]||'Tripulante')}</small></span>${String(m.user)===String(data.activeUser)?`<button class="btn btn-danger" onclick="removeMovie('${m.id}')">REMOVER</button>`:''}</div>`).join('')||'<div class="empty">A lista ainda está vazia. Adicionem o primeiro filme.</div>';}
+function renderMovies(){
+ const box=document.getElementById('movieList'),watched=document.getElementById('watchedMovieList');
+ if(box)box.innerHTML=(data.movies||[]).map(m=>`<div class="movie-item"><span><strong>${escapeHTML(m.title)}</strong> <small>· adicionado por @${escapeHTML(data.users[m.user]||'Tripulante')}</small></span><span>${String(m.user)===String(data.activeUser)?`<button class="btn btn-outline" onclick="markMovieWatched('${m.id}')">MARCAR ASSISTIDO</button> <button class="btn btn-danger" onclick="removeMovie('${m.id}')">REMOVER</button>`:''}</span></div>`).join('')||'<div class="empty">A lista está vazia. Adicionem o primeiro filme.</div>';
+ if(watched)watched.innerHTML=(data.watchedMovies||[]).map(m=>`<div class="movie-item" style="display:block"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap"><strong>${escapeHTML(m.title)}</strong><small>Assistido em ${escapeHTML(m.watchedDate||'data não informada')} · @${escapeHTML(data.users[m.user]||'Tripulante')}</small></div><label style="display:block;margin-top:10px">AVALIAÇÃO</label><select id="rating-${m.id}" style="max-width:180px"><option value="0" ${Number(m.rating)===0?'selected':''}>Sem avaliação</option>${[1,2,3,4,5].map(n=>`<option value="${n}" ${Number(m.rating)===n?'selected':''}>${'★'.repeat(n)} (${n}/5)</option>`).join('')}</select><label style="display:block;margin-top:10px">COMENTÁRIO / CRÍTICA</label><textarea id="review-${m.id}" maxlength="500" placeholder="O que acharam do filme?">${escapeHTML(m.review||'')}</textarea><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"><button class="btn" onclick="saveMovieReview('${m.id}')">SALVAR AVALIAÇÃO</button><button class="btn btn-outline" onclick="returnMovieToList('${m.id}')">VOLTAR À LISTA</button></div></div>`).join('')||'<div class="empty">Nenhum filme marcado como assistido ainda.</div>';
+}
+function markMovieWatched(id){const i=(data.movies||[]).findIndex(m=>m.id===id);if(i<0)return;const m=data.movies.splice(i,1)[0];data.watchedMovies=data.watchedMovies||[];data.watchedMovies.unshift({...m,watchedDate:new Date().toLocaleDateString('pt-BR'),rating:0,review:''});save();renderMovies();}
+function saveMovieReview(id){const m=(data.watchedMovies||[]).find(x=>x.id===id);if(!m)return;const rating=document.getElementById('rating-'+id),review=document.getElementById('review-'+id);m.rating=Number(rating?.value||0);m.review=review?.value.trim()||'';save();renderMovies();}
+function returnMovieToList(id){const i=(data.watchedMovies||[]).findIndex(m=>m.id===id);if(i<0)return;const m=data.watchedMovies.splice(i,1)[0];delete m.watchedDate;delete m.rating;delete m.review;data.movies.unshift(m);save();renderMovies();}
 function removeMovie(id){data.movies=(data.movies||[]).filter(m=>!(m.id===id&&String(m.user)===String(data.activeUser)));save();renderMovies();}
 function drawMovie(){const out=document.getElementById('movieDraw');if(!data.movies||!data.movies.length){out.textContent='Não há filmes na lista. Adicionem alguns antes do sorteio!';return;}const pick=data.movies[Math.floor(Math.random()*data.movies.length)];out.innerHTML='🎬 FILME DA VEZ: <strong>'+escapeHTML(pick.title)+'</strong><br>O destino escolheu. Sem reclamações com o Conselho Jedi.';}
 const tarotDeck=[
@@ -717,12 +685,6 @@ function farmTileClick(x,y){ensureFarm();const p=data.farm.player;if(Math.abs(p.
 function advanceFarm(){ensureFarm();const f=data.farm;f.turn++;f.plots.forEach(p=>{if(p&&p.watered){p.growth=Math.min(3,(p.growth||0)+1);p.watered=false;}});const next=farmPhases[f.phase];if(next&&f.credits>=next.unlock){f.phase++;f.plots=Array(6).fill(null);document.getElementById('farmHint').textContent=`Novo planeta desbloqueado: ${farmPhases[f.phase-1].name}!`; }else{document.getElementById('farmHint').textContent='Um novo dia começou. As plantas regadas cresceram; cuide da próxima colheita.';}save();renderFarm();}
 function restartFarm(){if(!confirm('Recomeçar a fazenda? O progresso atual será perdido para os dois jogadores.'))return;data.farm={phase:1,turn:1,credits:0,plots:Array(6).fill(null),player:{x:1,y:4}};save();renderFarm();}
 document.addEventListener('keydown',e=>{if(!document.getElementById('farm')?.classList.contains('active'))return;if(['INPUT','TEXTAREA'].includes(document.activeElement?.tagName))return;const k=e.key.toLowerCase(),moves={arrowup:[0,-1],w:[0,-1],arrowdown:[0,1],s:[0,1],arrowleft:[-1,0],a:[-1,0],arrowright:[1,0],d:[1,0]};if(moves[k]){e.preventDefault();moveFarm(...moves[k]);}});
-let musicPlaying=false;
-function toggleMusic(){
-const frame=document.getElementById('musicFrame'),button=document.getElementById('musicToggle');
-if(!musicPlaying){frame.src='https://www.youtube.com/embed/HrIJT_4Txqw?autoplay=1&controls=0&loop=1&playlist=HrIJT_4Txqw&rel=0';button.textContent='♫ PAUSAR MÚSICA';musicPlaying=true;}
-else{frame.src='about:blank';button.textContent='♫ TOCAR TEMA DE STAR WARS';musicPlaying=false;}
-}
 let gameCurrentPlayer='1',gameRunning=false,gameFrame=0,gameLastTime=0,gameDistance=0,gameSpeed=360,gameSpawn=0,gameObstacles=[],gameStars=[];
 let gameScores=data.gameScores||{'1':0,'2':0,'3':0},shipY=0,shipVelocity=0,shipGround=250,gameCanvas,gameCtx;
 function updateGameUI(){
@@ -752,7 +714,7 @@ renderFarm();
 initShipGame();
 initAuth();
 
-// Playlist fixa do Lucacetudo: reprodução incorporada, sem login Spotify no site.
+
 </script>
 </body>
 </html>
